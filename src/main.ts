@@ -6,7 +6,8 @@ enum Axis {
   Z = 2
 }
 
-type Side = "F" | "B" | "U" | "D" | "L" | "R";
+type Sides = ["F", "B", "U", "D", "L", "R"];
+type Side = Sides[number];
 
 interface Move {
   side: Side,
@@ -50,8 +51,8 @@ function* generateMove(): Generator<Move, never, never> {
     axis: sideAxis("F"),
     count: 1
   }
-  
-  const sides: Side[] = ['F', 'B', 'L', 'R', 'U', 'D']
+
+  const sides: Sides = ["F", "B", "U", "D", "L", "R"]
 
   while (true) {
     let availableSides = sides.filter(side => {
@@ -78,7 +79,7 @@ function generateScramble(count: number): string {
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <p id="scramble"></p>
-  <button id="button" onclick="replace()">Generate Another!</button>
+  <button id="button">Generate Another!</button>
 `
 
 let scramble = document.querySelector<HTMLParagraphElement>('#scramble')!
