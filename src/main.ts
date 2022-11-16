@@ -49,14 +49,14 @@ function* generateMove(): Generator<Move, null, null> {
     count: 1
   }
 
-  const sides: Array<Side> = ['F', 'B', 'L', 'R', 'U', 'D']
+  const sides: Side[] = ['F', 'B', 'L', 'R', 'U', 'D']
 
   while (true) {
-    let availableSides: Array<Side> = sides.filter(side => {
+    let availableSides = sides.filter(side => {
       console.log(side, sideAxis(side));
       return sideAxis(side) != sideAxis(lastMove.side)
     })
-    const randomSide: Side = availableSides[Math.floor(Math.random() * availableSides.length)]
+    const randomSide = availableSides[Math.floor(Math.random() * availableSides.length)]
     let move: Move = {
       side: randomSide,
       axis: sideAxis(randomSide),
@@ -81,8 +81,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <button id="button" onclick="replace()">Generate Another!</button>
 `
 
-let scramble: HTMLParagraphElement = document.querySelector<HTMLParagraphElement>('#scramble')!
-let button: HTMLButtonElement = document.querySelector<HTMLButtonElement>('#button')!
+let scramble = document.querySelector<HTMLParagraphElement>('#scramble')!
+let button = document.querySelector<HTMLButtonElement>('#button')!
 
 function reset() {
   scramble.textContent = generateScramble(20);
