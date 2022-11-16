@@ -50,7 +50,7 @@ function* generateMove(): Generator<Move, never, never> {
     axis: sideAxis("F"),
     count: 1
   }
-
+  
   const sides: Side[] = ['F', 'B', 'L', 'R', 'U', 'D']
 
   while (true) {
