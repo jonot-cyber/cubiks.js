@@ -1,5 +1,3 @@
-import './style.css'
-
 enum Axis {
   X = 0,
   Y = 1,
@@ -77,17 +75,13 @@ function generateScramble(count: number): string {
     .join(" ")
 }
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <p id="scramble"></p>
-  <button id="button">Generate Another!</button>
-`
-
-let scramble = document.querySelector<HTMLParagraphElement>('#scramble')!
-let button = document.querySelector<HTMLButtonElement>('#button')!
+const scramble = document.querySelector<HTMLParagraphElement>('#scramble')!
+const button = document.querySelector<HTMLButtonElement>('#button')!
 
 function reset() {
   scramble.textContent = generateScramble(20);
 }
+
 button.onclick = reset;
 
 reset()

@@ -1,15 +1,10 @@
 {
-  "name": "cubiks.js",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "typescript": "^4.6.4",
-    "vite": "^3.2.3"
-  }
+	"name": "cubiks.js",
+	"scripts": {
+		"start": "parcel src/index.html",
+		"build": "parcel build src/index.html"
+	},
+	"dependencies": {
+		"parcel": "^2.8.0"
+	}
 }
