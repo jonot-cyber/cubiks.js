@@ -2,8 +2,8 @@ import './style.css'
 
 enum Axis {
   X = 0,
-  Y,
-  Z
+  Y = 1,
+  Z = 2
 }
 
 type Side = "F" | "B" | "U" | "D" | "L" | "R";
