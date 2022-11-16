@@ -38,7 +38,9 @@ function sideAxis(side: Side): Axis {
     case 'F':
     case 'B':
       return Axis.Z;
-
+    default:
+      const _exhaust: never = side
+      return _exhaust
   }
 }
 
