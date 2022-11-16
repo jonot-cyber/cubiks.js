@@ -44,7 +44,7 @@ function sideAxis(side: Side): Axis {
   }
 }
 
-function* generateMove(): Generator<Move, null, null> {
+function* generateMove(): Generator<Move, never, never> {
   let lastMove: Move = {
     side: "F",
     axis: sideAxis("F"),
@@ -70,12 +70,10 @@ function* generateMove(): Generator<Move, null, null> {
 }
 
 function generateScramble(count: number): string {
-  let res = "";
-  let generator = generateMove();
-  for (let i = 0; i < count; i++) {
-    res += " " + moveToString(generator.next().value!)
-  }
-  return res
+  const generator = generateMove();
+  return Array.from(Array(count), () => generator.next(), generator) // generator.next() is called `count` times
+    .map(o => moveToString(o.value)) // convert values to move string
+    .join(" ")
 }
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
