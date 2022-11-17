@@ -13,8 +13,12 @@ body {
   font-family: monospace;
 }
 
+#scramble {
+  margin: 0.5em;
+}
+
 button {
-  background-color: #33333305;
+  background-color: white;
   border-radius: 8px;
   border-width: 0;
   cursor: pointer;
@@ -24,6 +28,22 @@ button {
   margin: 0;
   padding: 10px 12px;
   text-align: center;
+  box-sizing: border-box;
+  color: black;
+  border: 1px solid black;
+  transition: all 200ms;
+}
+
+button:hover {
+  color: white;
+  background-color: black;
+}
+
+.line {
+  background-color: black;
+  height: 0.1em;
+  width: 34em;
+  margin-bottom: 30px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,5 +56,14 @@ button {
     background-color: black;
     color: white;
     border: 1px solid white;
+  }
+
+  button:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .line {
+    background-color: white;
   }
 }
