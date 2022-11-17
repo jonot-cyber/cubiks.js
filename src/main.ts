@@ -44,17 +44,14 @@ function sideAxis(side: Side): Axis {
 }
 
 function* generateMove(): Generator<Move, never, never> {
-	let lastMove: Move = {
-		side: "F",
-		axis: sideAxis("F"),
-		count: 1,
-	};
+	let lastMove: Move | undefined
 
 	const sides: Sides = ["F", "B", "U", "D", "L", "R"];
 
 	while (true) {
 		let availableSides = sides.filter((side) => {
 			console.log(side, sideAxis(side));
+      if (!lastMove) return true
 			return sideAxis(side) != sideAxis(lastMove.side);
 		});
 		const randomSide =
