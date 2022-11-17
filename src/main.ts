@@ -44,14 +44,14 @@ function sideAxis(side: Side): Axis {
 }
 
 function* generateMove(): Generator<Move, never, never> {
-	let lastMove: Move | undefined
+	let lastMove: Move | undefined;
 
 	const sides: Sides = ["F", "B", "U", "D", "L", "R"];
 
 	while (true) {
 		let availableSides = sides.filter((side) => {
 			console.log(side, sideAxis(side));
-      if (!lastMove) return true
+			if (!lastMove) return true;
 			return sideAxis(side) != sideAxis(lastMove.side);
 		});
 		const randomSide =
@@ -80,6 +80,6 @@ function reset() {
 	scramble.textContent = generateScramble(20);
 }
 
-button.onclick = reset;
+button.addEventListener("click", reset);
 
 reset();
