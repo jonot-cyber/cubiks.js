@@ -54,7 +54,6 @@ function* generateMove(): Generator<Move, never, never> {
 
 	while (true) {
 		let availableSides = sides.filter((side) => {
-			console.log(side, sideAxis(side));
 			return sideAxis(side) != sideAxis(lastMove.side);
 		});
 		const randomSide =
