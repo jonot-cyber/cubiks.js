@@ -15,3 +15,7 @@ I know, I'm lazy. I'll do it later. Maybe. Probably not
 
 ### Nobody asked you any of these questions, you're just making them up
 I don't care
+
+## Usage
+
+`pnpm run build`
